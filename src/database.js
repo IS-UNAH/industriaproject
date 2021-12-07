@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 
 mongoose.set('useFindAndModify', false);
 //mongoose.connect(process.env.MONGODB_URI, {
-    mongoose.connect('mongodb+srv://moises:moises.123@cluster0.wik3y.mongodb.net/<dbname>?retryWrites=true&w=majority',{
+    mongoose.connect('mongodb+srv://camo:camo123@industria.s123y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true
@@ -16,6 +16,7 @@ mongoose.set('useFindAndModify', false);
  .then(db => console.log('Base Conectada'))
  .catch(err => console.log(err));
  
+
  //equire('./models/Order');
 
  //'mongodb+srv://moises:moises.123@cluster0.wik3y.mongodb.net/<dbname>?retryWrites=true&w=majority'
