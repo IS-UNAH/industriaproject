@@ -8,7 +8,7 @@ const cloudinary = require("cloudinary");
 cloudinary.config({
   cloud_name: dkn2iytih,
   api_key: 794495524191117,
-  api_secret: ENETh2i48s4GXEEoWoi7o10yPbk,
+  api_secret: ENETh2i48s4GXEEoWoi7o10yPbk
 });
 
 const fsExtra = require("fs-extra");
