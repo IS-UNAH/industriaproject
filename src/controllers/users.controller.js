@@ -59,11 +59,7 @@ usersCtrl.renderSignUpForm = (req, res) => {
     }
   }
 };
-
-    // console.log(req.body)
-    //res.send('recivido')
-     // res.send('signup');
-  
+ 
 
   usersCtrl.renderSigninForm = (req, res) => {
     res.render('users/signin');
@@ -71,75 +67,6 @@ usersCtrl.renderSignUpForm = (req, res) => {
     
   };
 
-  //  usersCtrl.renderSigninForm2 = (req, res) => {
-  //    res.render('cart/cart');
-    
-  // };
-  // usersCtrl.signin = (req,res)=>{
-  //   User.findOne({ admin: req.admin='true'},  async function(err, admin) {
-  //     if (admin = false) {
-  //       usersCtrl.signin = passport.authenticate("local", {
-  //         successRedirect: "/notes",
-  //         failureRedirect: "/users/signin",
-  //         failureFlash: true,
-      
-            
-  //       })
-  //     }
-      
-  //   });
-  // }
-  
-  // usersCtrl.signin = (req,res) =>{
-  //   User.findOne({ email: req.body.email},  function(err, user) {
-  //         if (user.admin = 'false') {
-  //           passport.authenticate("local", {
-  //              successRedirect: "/notes",
-  //              failureRedirect: "/users/signin",
-  //              failureFlash: true
-          
-                
-  //            });
-  //          }else{
-
-  //           passport.authenticate("local", {
-  //             successRedirect: "/notes",
-  //             failureRedirect: "/users/signin",
-  //             failureFlash: true
-         
-               
-  //           });
-             
-  //           req.flash('success_msg', 'Su Contraseña ha sido Actualizada');
-  //           res.redirect('/notes');
-  //          }
-          
-  //        });
-  // };
-
-  // function requireAdmin() {
-  //   return function(req, res, next) {
-  //     User.findOne({ email: req.body.email }, function(err, user) {
-  //       if (err) { return next(err); }
-  
-  //       if (!user) { 
-  //         // Do something - the user does not exist
-  //         req.flash('error', 'Credenciales Incorrectas');
-  //             return res.redirect('/users/userAdmin');
-  //       }
-  //       if (!user.admin==true) { 
-  //         req.flash('error', 'No es un usuario Administrador');
-  //         return res.redirect('/users/userAdmin');
-  //         // Do something - the user exists but is no admin user
-  //       }
-  //       // Hand over control to passport
-  //       next();
-      
-  //     });
-  //   }
-    
-  // }
- 
     usersCtrl.signin = passport.authenticate("local", {
       successRedirect: "/notes",
      failureRedirect: "/users/signin",
@@ -165,51 +92,18 @@ usersCtrl.renderSignUpForm = (req, res) => {
        res.redirect('/users/adminPanel');
      };
 
-    // usersCtrl.renderAdminPanelForm = (req, res) => {
-    //   User.find().then(result=>{
-    //     res.send(result);
-    //     res.end();
-    //   }).catch(error=>{
-    //     res.send(error);
-    //     res.end();
-    //   })
-    //   res.render('users/adminPanel');
-    // };
-    // personas:[];
-    // ngOnInit(){
-    //   this.httpClient.get(´${this.backendHost}/usuarios´)
-    //   .subscribe( res=>{
-    //     this.personas = res;
-    //     console.log(this.personas)
-    //   });
-    // }
-    // usersCtrl.userAdmin = passport.authenticate("local", {
-    //   successRedirect: "/notes",
-    //  failureRedirect: "/users/userAdmin",
-    //   failureFlash: true
-  
-      
-    // });
-
-  
 
   usersCtrl.renderUserAdminForm = (req, res) => {
     res.render('users/userAdmin');
-    
-    
   };
   
+
   usersCtrl.userAdmin = passport.authenticate("local", {
     successRedirect: "/users/adminPanel",
    failureRedirect: "/users/userAdmin",
     failureFlash: true
-
-    
   });
   
-  
-  
-
 
   usersCtrl.logout = (req, res) => {
     req.logout();
@@ -230,33 +124,7 @@ usersCtrl.renderSignUpForm = (req, res) => {
   
   
   usersCtrl.renderNewPassForm = (req, res) => {
-
     res.render('users/newPass');
-    //User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() }}, function(err, user) {
-      //if (!user) {
-        //req.flash('error', 'El token de restablecimiento de contraseña no es válido o ha caducado.');
-       // return res.redirect('/users/recuperar');
-     // }else{
-      //  res.render('users/newPass',req.user);
-     // }
-      
-    //});
-  } /*function (req, res) {
-    
-    if (req.isAuthenticated()) {
-        //user is alreay logged in
-        return res.redirect('/');
-    }
-    var token = req.params.token;
-    users.checkReset(token, req, res, function (err, data) {
-        if (err)
-            req.flash('error', err);
-
-        //show the UI with new password entry
-        res.render('users/newPass');
-    });
-}*/
-  
  
   usersCtrl.newPass = async (req, res) => {
     //var token =decodeURIComponent(req);
