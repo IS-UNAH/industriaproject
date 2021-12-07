@@ -77,6 +77,8 @@ notesCtrl.createNewNote = async (req, res) => {
     req.flash("success_msg", "Producto agregado con éxito"); //? msn de de exito
     res.redirect("/notes");
 
+    // res.redirect("index");
+    //console.log(req.file);
   }
 };
 
@@ -100,6 +102,8 @@ notesCtrl.renderNotesFinder = async (req, res) => {
     .sort({ createdAt: -1 })
     .lean(); //?busca el arreglo
   res.render("notes/notesFinder", { notes, formulario }); //?pasalos objetos/muestra en pantalla
+  // res.render('index', { notes }) //?pasa los objetos/muestra en pantalla
+  //  console.log(notes);
 };
 
 notesCtrl.renderProductos = async (req, res) => {
@@ -154,6 +158,14 @@ notesCtrl.renderEditForm = async (req, res) => {
   // console.log(note)
   res.render("notes/edit-note", { note }); //pasando el valor
 };
+
+//*Actualizar producto
+/*
+notesCtrl.updateNotes = async (req, res) => {//console.log(req.body)
+    const {title, description} = req.body;
+    await Note.findByIdAndUpdate(req.parmas.id, {title, description}).lean()
+    res.redirect("/notes");
+};*/
 
 notesCtrl.updateNotes = async (req, res) => {
   const { title, description, precio, imgURL } = req.body;
