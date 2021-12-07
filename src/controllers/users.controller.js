@@ -10,9 +10,9 @@ const { unregisterDecorator } = require('handlebars');
 
 const cloudinary = require('cloudinary');
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
+  cloud_name: dkn2iytih,
+  api_key: 794495524191117,
+  api_secret: ENETh2i48s4GXEEoWoi7o10yPbk
 });
 
 const fsExtra = require('fs-extra');
