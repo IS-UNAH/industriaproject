@@ -1,0 +1,580 @@
+<nav class="menu" id="menu">
+
+    <div class="contenedor contenedor-botones-menu">
+        <button id="btn-menu-barras" class="btn-menu-barras"><i class="fas fa-bars"></i></button>
+        <button id="btn-menu-cerrar" class="btn-menu-cerrar"><i class="fas fa-times"></i></button>
+    </div>
+
+    {{!-- <a style="color: rgb(53, 41, 26);" href="/">
+        <i style="color: rgb(255, 145, 0);" class="fab fa-pagelines"></i>
+        <img src="/img/logo1.png" alt="logo1">
+        <i style="color: rgb(255, 145, 0);" class="fab fa-raspberry-pi"></i>
+    </a> --}}
+
+
+    <div class="contenedor contenedor-enlaces-nav">
+        <div class="btn-departamentos" id="btn-departamentos">
+            <p>Toda Las<span>Ciudades<span></p>
+            <i class="fas fa-caret-down"></i>
+        </div>
+
+        <a style="color: rgb(53, 41, 26);" href="/">
+            <i style="color: rgb(255, 145, 0);" class="fab fa-pagelines"></i>
+            <img src="/img/logo1.png" alt="logo1">
+            <i style="color: rgb(255, 145, 0);" class="fab fa-raspberry-pi"></i>
+        </a>
+
+        <div class="enlaces">
+            <a style="color: rgb(242, 246, 246);" href="/about">Conocenos</a>
+            {{!-- <a style="color: rgb(242, 246, 246);" href="/cart/cart">𝒱𝑒𝓇 𝒪𝓇𝒹𝑒𝓃𝑒𝓈</a> --}}
+            {{!-- <a style="color: rgb(242, 246, 246);" href="/notes">Mi Perfil</a> --}}
+
+        </div>
+
+        {{#if user}}
+
+        <a style="color: rgb(242, 246, 246);" href="/notes">MI PERFIL</a>
+        {{!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" style="color: rgb(246, 255, 254);">
+                    Productos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item " href="/notes">Ver todo los productos</a>
+                    <a class="dropdown-item " href="/notes/add">Agregar Producto</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/users/logout">Cerrar Sesión</a>
+                </div>
+            </li> --}}
+        {{else}}
+        <a style="color: rgb(242, 246, 246);" href="/users/signin">Inicia Session</a>
+        <a style="color: rgb(242, 246, 246);" href="/users/signup">Registrate</a>
+        {{/if}}
+
+        <form class="form-inline my-2 my-lg-0 position-relative" action="/notes/notesFinder" method="GET">
+            <input class="form-control mr-sm-2" name="formulario" type="search" placeholder="Buscar Articulos"
+                aria-label="Search">
+            <button name="boton" class="btn btn-search position-absolute" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <div class="nav-cart col-xs-8">
+            <div class="dropdown pull-right icono">
+                {{!-- <div class="col-xs-8"> --}}
+                <a src="" class="btn" data-toggle="modal" data-target="#exampleModal">
+                    <i style="color: rgb(255, 145, 0);" class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+                    {{#if session.cart.totalQty }}
+                    <span  class="badge badge-pill badge-warning font-weight-bold">{{session.cart.totalQty}}</span>
+                    {{/if}}
+                </a>
+
+
+            </div>
+
+
+            {{#if session.cart.totalQty }}
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <h5 class="modal-title text-info font-weight-bold" id="exampleModalLabel">Productos
+                                Agregados</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            {{!-- table --}}
+                            <table class="table table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Productos</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each session.cart.items }}
+                                    <tr>
+                                        <th scope="row">{{numItems}}</th>
+                                        <td>{{ this.item.title }}</td>
+                                        <td>{{ this.quantity }}</td>
+                                        <td>$.{{ this.precio }}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                            <div class="modal-footer">
+                                <a type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</a>
+                                <a id="msjC" type="button" class="btn btn-outline-success" href="/cart/cart">Comprar</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+
+        </div>
+    </div>
+
+
+
+
+    {{!-- <div class="nav-cart">
+                <div class="icono">
+                    <a class="" href="/cart/cart">
+                        <i style="color: rgb(255, 145, 0);" class="fas fa-shopping-cart"></i>
+                         <span
+                        class="badge badge-pill badge-dark text-white font-weight-bold">{{session.cart.totalQty}}</span>
+
+                        <span style="color: rgb(246, 255, 254);">Cart</span>
+                    </a><i class="count-item">0</i>
+                </div>
+            </div> --}}
+
+
+
+
+
+
+
+
+    <div class="contenedor contenedor-grid">
+        <div class="grid" id="grid">
+            <div class="categorias">
+                <button class="btn-regresar"><i class="fas fa-arrow-left"></i> Regresar𝓻</button>
+                <h3 class="subtitulo">Categorias</h3>
+
+                <a href="/cityTegu" data-categoria="tegucigalpa">Tegucigalpa <i class="fas fa-angle-right"></i></a>
+                <a href="/citySanPedroSula" data-categoria="san-pedro-sula">San Pedro sula <i
+                        class="fas fa-angle-right"></i></a>
+                <a href="/cityPuertoCortes" data-categoria="puerto-cortes">Puerto Cortes<i
+                        class="fas fa-angle-right"></i></a>
+                <a href="/cityDanli" data-categoria="danli">Danli <i class="fas fa-angle-right"></i></a>
+                <a href="/cityCeiba" data-categoria="la-ceiba">La Ceiba<i class="fas fa-angle-right"></i></a>
+                <a href="/cityComayagua" data-categoria="comayagua">Comayagua <i class="fas fa-angle-right"></i></a>
+                <a href="/cityTela" data-categoria="tela">Tela <i class="fas fa-angle-right"></i></a>
+                <a href="/cityOmoa" data-categoria="omoa">Omoa <i class="fas fa-angle-right"></i></a>
+                <a href="/cityAmapala" data-categoria="amapala">Amapala <i class="fas fa-angle-right"></i></a>
+                <a href="/cityRoatan" data-categoria="roatan">Roatan <i class="fas fa-angle-right"></i></a>
+            </div>
+
+            <div class="contenedor-subcategorias">
+                <div class="subcategoria " data-categoria="tegucigalpa">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+                        <h3 class="subtitulo">Tegucigalpa</h3>
+                        <a href="#">Artesanía</a>
+                        <a href="#">Joyería</a>
+                        <a href="#">Carteras</a>
+                        <a href="#">Zapatos</a>
+                        <a href="#">Llaveros</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgTegu/img9.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgTegu/img10.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgTegu/img11.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgTegu/img12.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgTegu/img13.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="san-pedro-sula">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+                        <h3 class="subtitulo">San Pedro Sula</h3>
+                        <a href="#">Artesanía</a>
+                        <a href="#">Joyería</a>
+                        <a href="#">Carteras</a>
+                        <a href="#">Zapatos</a>
+                        <a href="#">Llaveros</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgSanPedroSula/img5.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgSanPedroSula/img1.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgSanPedroSula/img2.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgSanPedroSula/img7.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgSanPedroSula/img4.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="la-ceiba">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+                        <h3 class="subtitulo">La Ceiba</h3>
+                        <a href="#">Artesanía</a>
+                        <a href="#">Joyería</a>
+                        <a href="#">carteras</a>
+                        <a href="#">zapatos</a>
+                        <a href="#">Llaveros</a>
+
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgCeiba/img9.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgCeiba/img10.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgCeiba/img11.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgCeiba/img12.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgCeiba/img13.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="puerto-cortes">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+                        <h3 class="subtitulo">Puerto Cortés</h3>
+                        <a href="#">Artesanía</a>
+                        <a href="#">Joyería</a>
+                        <a href="#">Carteras</a>
+                        <a href="#">Zapatos</a>
+                        <a href="#">Llaveros</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgPuertoCortes/img6.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgPuertoCortes/img1.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgPuertoCortes/img2.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgPuertoCortes/img8.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgPuertoCortes/img4.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="comayagua">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+                        <h3 class="subtitulo">Comayagua</h3>
+                        <a href="#">Artesanía</a>
+                        <a href="#">Joyería</a>
+                        <a href="#">Carteras</a>
+                        <a href="#">Zapatos</a>
+                        <a href="#">Llaveros</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgComayagua/img2.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgComayagua/img3.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgComayagua/img4.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgComayagua/img6.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgComayagua/img7.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="danli">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+                        <h3 class="subtitulo">Danlí</h3>
+                        <a href="#">Artesanía</a>
+                        <a href="#">Joyería</a>
+                        <a href="#">Carteras</a>
+                        <a href="#">Zapatos</a>
+                        <a href="#">Llaveros</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgDanli/img3.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgDanli/img1.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgDanli/img2.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgDanli/img4.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgDanli/img8.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="tela">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+                        <h3 class="subtitulo">Tela</h3>
+                        <a href="#">Artesanía</a>
+                        <a href="#">Joyería</a>
+                        <a href="#">Carteras</a>
+                        <a href="#">Zapatos</a>
+                        <a href="#">Llaveros</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgTela/img5.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgTela/img1.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgTela/img3.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/img7.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/img8.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="omoa">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+                        <h3 class="subtitulo">Omoa</h3>
+                        <a href="#">Artesanía</a>
+                        <a href="#">Joyería</a>
+                        <a href="#">Carteras</a>
+                        <a href="#">Zapatos</a>
+                        <a href="#">Llaveros</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgOmoa/img9.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgOmoa/img10.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgOmoa/img11.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgOmoa/img12.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgOmoa/img13.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="amapala">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+                        <h3 class="subtitulo">Amapala</h3>
+                        <a href="#">Artesanía</a>
+                        <a href="#">Joyería</a>
+                        <a href="#">Carteras</a>
+                        <a href="#">Zapatos</a>
+                        <a href="#">Llaveros</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgAmapala/img9.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgAmapala/img10.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgAmapala/img11.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgAmapala/img12.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgAmapala/img13.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="roatan">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+                        <h3 class="subtitulo">Roatan</h3>
+                        <a href="#">Artesanía</a>
+                        <a href="#">Joyería</a>
+                        <a href="#">arteras</a>
+                        <a href="#">zapatos</a>
+                        <a href="#">llaveros</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgRoatan/img4.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./img/img/imgRoatan/img3.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgRoatan/img2.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgRoatan/img8.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./img/img/imgRoatan/img7.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</nav>
+{{!-- <div class="nav-cart text-right">
+        <div class="icono">
+            <a class="" href="/orders">
+                <i style="color: rgb(255, 145, 0);" class="fas fa-shopping-cart"></i>
+                <span style="color: rgb(182, 159, 32);">Cart</span>
+            </a><i class="count-item">0</i>
+        </div>
+    </div> --}}
+
+{{!-- <main class="contenedor col-xs-12 col-sm-6 col-md-6 col-lg-3">
+
+		 <div class="container-fluid ">
+			<div class="row" id="productos">
+				
+				<!-- <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+					<div class="card tarjeta">
+						<img class="card-img-top" src="img/img3.jpg" alt="">
+						<div class="card-body contenido ">$20
+							<h5 class="card-title">Artesania</h5>
+							<p class="card-text">Artesania Honduras</p>
+							<p class="card-text">Ciudad: Tegucigalpa</p>
+							<i class="fas fa-star"></i>
+							<i class="far fa-star"></i>
+							<i class="far fa-star"></i>
+							<div class="price botones">
+								<button>Comprar</button>
+								<button class="btn cart-btn">Agregar</button>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				
+
+			</div>
+		</div> 
+
+		
+
+
+
+		
+		
+
+		<!-- <div class="envoltura">
+			<div class="envoltura tarjeta">
+				<img src="img/img32.jpg" alt="">
+				<div class="contenido">
+					<div class=""">
+						<div class="details">
+							<span>Artesania</span>
+							<p>Artesania Honduras</p>
+						</div>
+						<div class="price">$20</div>
+					</div>
+					<div class="botones">
+						<button>Comprar</button>
+						<button class="cart-btn">Agregar</button>
+					</div>
+				</div>
+			</div> 
+	 -->
+
+	</main> --}}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#msj').click(function () {
+            alertify.success("No haz agregado productos al carrito")
+            //alertify.alert("No haz agregado productos al carrito")
+            
+        })
+    })
+</script>
+
+

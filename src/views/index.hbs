@@ -1,0 +1,162 @@
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: #0F2027;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+</style>
+
+{{!-- class="animate__animated animate__fadeInDown" --}}
+<main role="main">
+    <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li style="z-index:102;" data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li style="z-index:102;" data-target="#myCarousel" data-slide-to="1"></li>
+            <li style="z-index:102;" data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img loading="lazy" class="d-block w-100 imgFilter first-slide" src="img/carusel/slide15.jpg"
+                    alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h1 class="font-weight-bold">Tegucigalpa</h1>
+                        <p class="text-white ">Tegucigalpa es conocida por muchos por su diversidad gastronómica
+                            y sitios que puedes
+                            recorrer dentro de la ciudad.</p>
+                        <p><a href="/cityTegu" role="butoon"
+                                class="btn btn-outline-success btn-sm text-white">Visitar</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img loading="lazy" class="d-block w-100 imgFilter second-slide" src="img/carusel/slide11.jpg"
+                    alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption ">
+                        <h1 class="font-weight-bold">Omoa</h1>
+                        <p class="text-white ">Omoa es una pequeña ciudad de playa ubicada en Honduras. Es famosa
+                            por sus relucientes playas
+                            que se extienden a lo largo del mar Caribe.</p>
+                        <p><a href="/cityOmoa" role="butoon"
+                                class="btn btn-outline-danger btn-sm text-white">Visitar</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img loading="lazy" class="d-block w-100 imgFilter third-slide" src="img/carusel/slide12.jpg"
+                    alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption text-right">
+                        <h1 class="font-weight-bold">Roatán</h1>
+                        <p class="text-white ">Roatán es una de las Islas de la Bahía de Honduras en el Caribe.
+                            Forma parte del enorme
+                            Sistema Arrecifal Mesoamericano y es conocida por las playas, los sitios de buceo y la fauna
+                            marina.</p>
+                        <p><a href="/cityRoatan" role="butoon"
+                                class="btn btn-outline-primary btn-sm text-white">Visitar</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a style="z-index:101" class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+            data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a style="z-index:101" class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+            data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+</main>
+
+
+
+<main class="">
+    <br>
+    <h1 id="titulo" class="text-center text-white">Productos</h1>
+
+    <div class="container-fluid ">
+        <div class="row">
+            {{#each notes}}
+            <div id="agregar" class="col-xs-12 col-sm-12 col-md-6 col-lg-4 pt-3 font-weight-bold">
+                <div class="card tarjeta">
+                    <img loading="lazy" type="file" class="card-img-top img-alinear" src="{{imgURL}}" name="image">
+
+                    <div class="card-body contenido p-3 mb-2 bg-secondary text-white">
+                        <h5 id="titleT" class="card-title text-center font-weight-bold ">{{ title }}</h5>
+                        <hr>
+                        <p class="card-text animate__animated animate__fadeInDown">Detalle: {{ description }}</p>
+                        Vendedor:{{user}}
+                        <p class="card-text">Precio: Lps.{{precio}}</p>
+                        <i style="color: rgb(226, 170, 16);" class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <div class="price botones">
+                            {{!-- <button>Comprar</button> --}}
+                            {{!-- <a href="/cart/add-to-cart/{{this.id}}" class="btn btn-dark btn-lg pull-right"role="button"><i class="fas fa-cart-plus"></i> --}}
+                            <a href="cart/add/{{_id }}"
+                                class="btn btn-info cart-btn btn-outline-dark btn-block font-weight-bold" role="button">
+                                <i style="color: rgb(255, 145, 0);" class="fa fa-shopping-cart"
+                                    aria-hidden="true"></i>Agregar</a>
+
+                            {{!-- <button class="btn cart-btn pull-right">Agregar<i class="fas fa-cart-plus"></i></button> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <hr style="color: black">
+
+    <div class="row">
+        <nav class="mx-auto">
+            <ul class="pagination">
+
+                <!-- Primera Pagina -->
+
+
+                {{!-- Numeracion --}}
+
+                <li class="page-item">
+                    <a class="page-link" href="/{{page}}">Inicio</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="/products/1">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="/products/2">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="/products/3">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="/products/4">4</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="/products/5">5</a>
+                </li>
+
+                {{!-- Ultima Pagina --}}
+                <li class="page-item">
+                    <a class="page-link" href="/products/{{pages}}">Final</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+    <Pre>
+Pagina: {{ current}}
+De: {{ pages}}
+</Pre>
+    <br><br>
