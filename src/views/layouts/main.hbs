@@ -11,6 +11,17 @@
     <title>504Venir</title>
     <link rel="icon" type="image/png" href="img/logo2.png">
 
+    <!--PWA-->
+    <meta name="theme-color" content="#F0DB4F">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="shortcut icon" type="image/png" href="./img/504Venir.png">
+    <link rel="apple-touch-icon" href="./504Venir.png">
+    <link rel="apple-touch-startup-image" href="./504Venir.png">
+    <link rel="manifest" href="./manifest.json">
+
     {{!-- alertas --}}
     <link rel="stylesheet" href="/alertifyjs/css/alertify.css">
     <link rel="stylesheet" href="/alertifyjs/css/themes/default.css">
@@ -23,7 +34,8 @@
     <!--ANIMATE CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-    {{!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css"> --}}
+    {{!--
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css"> --}}
 
     <!--Para Iconos-FontAwesome-->
     <script src="https://kit.fontawesome.com/0174cae6ac.js" crossorigin="anonymous"></script>
@@ -41,21 +53,27 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    {{!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"> --}}
+    {{!--
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    --}}
 
 
     <!--Estilos CSS-->
     <link rel="stylesheet" href="/css/estilos.css">
     <link rel="stylesheet" href="/css/tarjeta.css">
-    {{!-- <link rel="stylesheet" href="/css/buscador.css"> --}}
+    {{!--
+    <link rel="stylesheet" href="/css/buscador.css"> --}}
 
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/carousel.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/login.css">
-    {{!-- <link rel="stylesheet" href="css/sidebarMenu.css">  --}}
-    {{!-- <link rel="stylesheet" href="/css/registro.css"> --}}
+    {{!--
+    <link rel="stylesheet" href="css/sidebarMenu.css"> --}}
+    {{!--
+    <link rel="stylesheet" href="/css/registro.css"> --}}
 
 
 
@@ -65,7 +83,7 @@
     <div id="pagina">
         <div id="cabecera">
             {{>navigation}}
-           
+
             <main class="container">
                 {{>messages}}
                 {{>errors}}
@@ -80,8 +98,8 @@
 
 
 
-
-
+    <!--SW-->
+    <script src="./script.js"></script>
 
 
     <!--BOOTSTRAP-->
