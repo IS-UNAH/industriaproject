@@ -5,8 +5,6 @@ if (process.env.NODE_ENV !== 'production'){
 }
 
 const app = require('./server');
-require('./script');
-require('./sw');
 require('./database');
 
 app.listen(app.get('port'), () =>{ //?Iniciando Servidor
