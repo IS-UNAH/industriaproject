@@ -1,10 +1,4 @@
 const mongoose = require('mongoose')
-// var MongoStore = require('connect-mongo')(session);
-
-
-
-// const {NOTES_APP_MONGODB_HOST, NOTES_APP_MONGODB_DATABASE} = process.env;
-// const MONGODB_URI = `mongodb://${NOTES_APP_MONGODB_HOST}/${NOTES_APP_MONGODB_DATABASE}`;
 
 mongoose.set('useFindAndModify', false);
 //mongoose.connect(process.env.MONGODB_URI, {
@@ -15,21 +9,3 @@ mongoose.set('useFindAndModify', false);
 })
  .then(db => console.log('Base Conectada'))
  .catch(err => console.log(err));
- 
-
- //equire('./models/Order');
-
-//mongoose.connect('mongodb+srv://camo:camo123@industria.s123y.mongodb.net/industria?retryWrites=true&w=majority',{
-//mongoose.connect('mongodb+srv://moises:moises.123@cluster0.wik3y.mongodb.net/<dbname>?retryWrites=true&w=majority',{
-
-//mongodb+srv://<username>:<password>@industria.s123y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-
-
- //'mongodb+srv://moises:moises.123@cluster0.wik3y.mongodb.net/<dbname>?retryWrites=true&w=majority'
-
-//shell
-//mongo "mongodb+srv://cluster0.wik3y.mongodb.net/504Venirdb" --username moises
-
- //?mongo "mongodb+srv://cluster0.wik3y.mongodb.net/<dbname>" --username moises
-
- //?mongodb+srv://moises:<password>@cluster0.wik3y.mongodb.net/<dbname>?retryWrites=true&w=majority
