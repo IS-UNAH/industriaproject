@@ -6,7 +6,7 @@
   "theme_color": "#F0DB4F",
   "orientation": "portrait",
   "display": "standalone",
-  "start_url": "./views/layouts/main.hbs",
+  "start_url": "./",
   "scope": "./",
   "lang": "es-MX",
   "icons": [
